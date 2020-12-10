@@ -49,20 +49,16 @@ public class LaminaMenuGeneral extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==boton1){
             Texto1.setText("Estoy pulsando el boton JUGAR");
-        }
-        if(e.getSource()==boton2){
+        }else if(e.getSource()==boton2){
             Texto1.setText("Estoy pulsando el boton REGLAS");
 
-        }
-         if(e.getSource()==boton3){
+        }else if(e.getSource()==boton3){
             Texto1.setText("Estoy pulsando el boton AUTORES");
 
-        }
-        if(e.getSource()==boton4){
+        }else if(e.getSource()==boton4){
             Texto1.setText("Estoy pulsando el boton EXTRAS");
 
-        }
-        if(e.getSource()==boton5){}
+        }else{
             Texto1.setText("Estoy pulsando el boton Salir");
 
         }
