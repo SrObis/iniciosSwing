@@ -1,4 +1,4 @@
-package iniciosSwing;
+package inicioSwing;
 
 import javax.swing.*;//JPanel
 
@@ -8,14 +8,16 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;//ActionListener
 
 public class LaminaMenuGeneral extends JPanel implements ActionListener {
+
     JButton boton1;// JButton= boton
-    JButton boton2;
+    BotonPersonalizado boton2;//BotonPersonalizado es el fichero de BotonPersonalizado
     JButton boton3;
     JButton boton4;
     JButton boton5;
     JTextField Texto1;// JTextField=caja de texto
 
     LaminaMenuGeneral() {
+
         setLayout(new FlowLayout());// setLayout forma de organizar los elementos de la lamina
         boton1 = new JButton("Jugar");// texto
         boton2 = new JButton("REGLAS");
@@ -47,23 +49,39 @@ public class LaminaMenuGeneral extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         if(e.getSource()==boton1){
-            Texto1.setText("Estoy pulsando el boton JUGAR");
+
+            /* Queremos cambiar a Jugar 
+                Primero creamos un objeto del marco y lugo lo linkearemos
+            */
+            MarcoGeneral marco=(MarcoGeneral) SwingUtilities.getWindowAncestor(this);
+            /* Recojo el marco actual i lo elimino */
+            marco.remove(this);
+            /* Pongo la nueva lamina*/
+            marco.add(new PanelJugar());
+            /*Actualizo el marco */
+            marco.setVisible(true);
+
         }else if(e.getSource()==boton2){
+
             Texto1.setText("Estoy pulsando el boton REGLAS");
 
         }else if(e.getSource()==boton3){
+
             Texto1.setText("Estoy pulsando el boton AUTORES");
 
         }else if(e.getSource()==boton4){
+
             Texto1.setText("Estoy pulsando el boton EXTRAS");
 
         }else{
+
             Texto1.setText("Estoy pulsando el boton Salir");
 
         }
-        System.out.println("Estoy pulsando el boton");//por consola se printa el escrito
-        Texto1.setText("Estoy escribiendo");//se printa a el quadro de texto el texto
+        //System.out.println("Estoy pulsando el boton");//por consola se printa el escrito
+        //Texto1.setText("Estoy escribiendo");//se printa a el quadro de texto el texto
     }
 
 }
